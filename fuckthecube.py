@@ -1,10 +1,11 @@
 bl_info = {
     "name": "FuckTheCube",
     "description": "Fuck that default cube"
-    "author": ("RamenSlayer")
-    "version": (0, 0, 1)
+    "author": "RamenSlayer"
+    "version": (0, 1)
     "blender": (2, 80, 0),
     "category": "Object"
+    "location": "View3D > Object"
 }
 
 import bpy
