@@ -21,6 +21,14 @@ class FuckTheCube(bpy.types.Menu):
             return {'FINISHED'}
         except:
             return ('Oops, something went wrong')
+     
+    def draw(self, context):    
+        layout = self.layout
+        object = context.active_object
+        
+        scene = context.scene
+        col = layout.column(align=True)
+
 
 def menu_func(self, context):
     self.layout.operator(FuckTheCube.bl_idname)
