@@ -1,11 +1,11 @@
 bl_info = {
-    "name": "FuckTheCube",
-    "description": "Fuck that default cube"
-    "author": "RamenSlayer"
-    "version": (0, 1)
+    "name": "Fuck The Cube",
+    "author": "RamenSlayer",
+    "version": (0, 1),
     "blender": (2, 80, 0),
-    "category": "Object"
-    "location": "View3D > Object"
+    "location": "View3D > Object",
+    "description": "Delete the default cube (if there isn't one won't do anything, must be called Cube.",
+    "category": "Object",
 }
 
 import bpy
