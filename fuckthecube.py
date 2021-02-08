@@ -15,10 +15,12 @@ class FuckTheCube(bpy.types.Menu):
     bl_idname = "cube_get_fucked"
     
     def execute(self, context):
-        bpy.data.objects['Cube'].select_set(True)
-        bpy.ops.object.delete(use_global=False)
-        
-        return {'FINISHED'}
+        try:
+            bpy.data.objects['Cube'].select_set(True)
+            bpy.ops.object.delete(use_global=False)
+            return {'FINISHED'}
+        except:
+            return ('Oops, something went wrong')
 
 def menu_func(self, context):
     self.layout.operator(FuckTheCube.bl_idname)
