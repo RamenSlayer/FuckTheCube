@@ -27,9 +27,13 @@ class OBJECT_OT_killonecube(Operator):
     
     def execute(self, context):
         bpy.ops.object.select_all(action='DESELECT')
-        bpy.data.objects['Cube'].select_set(True)
-        bpy.ops.object.delete(use_global=False)
-        return {'FINISHED'}
+        try:
+            bpy.data.objects['Cube'].select_set(True)
+            bpy.ops.object.delete(use_global=False)
+        except:
+            print("Probably nothing named cube in the scene")
+        finally:    
+            return {'FINISHED'}
 
 
 
