@@ -18,7 +18,7 @@ from bpy.types import (
 
 
 class OBJECT_OT_killonecube(Operator):
-    bl_label = "Kill the cube"
+    bl_label = "Kill the cube by name"
     bl_idname = "object.cube_die"
     bl_description = "Kills any object called cube"
     bl_space_type = "VIEW_3D"
@@ -26,12 +26,9 @@ class OBJECT_OT_killonecube(Operator):
     bl_options = {'REGISTER', 'UNDO'}
     
     def execute(self, context):
-        bpy.context.active_object.select_set(False)
-        try:
-            bpy.data.objects['Cube'].select_set(True)
-            bpy.ops.object.delete(use_global=False)
-        except:
-            print("there probably isn't an object named 'Cube' in the scene" 
+        bpy.ops.object.select_all(action='DESELECT')
+        bpy.data.objects['Cube'].select_set(True)
+        bpy.ops.object.delete(use_global=False)
         return {'FINISHED'}
 
 
