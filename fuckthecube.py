@@ -2,8 +2,8 @@
 bl_info = {
     "name": "Fuck The Cube",
     "author": "RamenSlayer",
-    "version": (0, 1, 5),
-    "blender": (2, 80, 0),
+    "version": (0, 1, 6),
+    "blender": (2, 91, 2),
     "location": "View3D > Object",
     "description": "Delete the default cube (if there isn't one won't do anything, must be called Cube.",
     "category": "Object",
@@ -33,6 +33,7 @@ class OBJECT_OT_killonecube(Operator):
     def execute(self, context):
         bpy.ops.object.select_all(action='DESELECT') #unselecting everything so it doesn't delete anything it shouldn't
         try:
+            bpy.data.objects['Cube'].object.hide_set(False) #unhiding the cube
             bpy.data.objects['Cube'].select_set(True) #finding the object called Cube, selecting it
             bpy.ops.object.delete(use_global=False) #deleting the object
         except:
@@ -53,6 +54,7 @@ class OBJECT_OT_killallcubes(Operator):
         bpy.ops.object.select_all(action='DESELECT')
         for object in bpy.data.objects:
             if "cube" in object.name.lower():
+                object.hide_set(False)
                 object.select_set(True)
         bpy.ops.object.delete(use_global=False)
         return {'FINISHED'}
